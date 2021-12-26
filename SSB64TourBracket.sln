@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSB64TourBracket", "SSB64TourBracket\SSB64TourBracket.csproj", "{7AA64B87-2350-49FC-BD6E-5170303BFAB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AA64B87-2350-49FC-BD6E-5170303BFAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA64B87-2350-49FC-BD6E-5170303BFAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AA64B87-2350-49FC-BD6E-5170303BFAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA64B87-2350-49FC-BD6E-5170303BFAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9315180D-4BD3-4BE5-B451-A297B07C3982}
+	EndGlobalSection
+EndGlobal
