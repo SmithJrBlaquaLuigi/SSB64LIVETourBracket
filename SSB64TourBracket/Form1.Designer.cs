@@ -45,12 +45,17 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.player3names = new System.Windows.Forms.Label();
+            this.Player2 = new System.Windows.Forms.Label();
+            this.Player1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -122,6 +127,7 @@
             // 
             // saveBracketFileToolStripMenuItem1
             // 
+            this.saveBracketFileToolStripMenuItem1.Enabled = false;
             this.saveBracketFileToolStripMenuItem1.Name = "saveBracketFileToolStripMenuItem1";
             this.saveBracketFileToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
             this.saveBracketFileToolStripMenuItem1.Text = "Save Bracket File Data..";
@@ -186,6 +192,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel2.Controls.Add(this.player3names);
+            this.panel2.Controls.Add(this.Player2);
+            this.panel2.Controls.Add(this.Player1);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
@@ -195,6 +205,43 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(222, 437);
             this.panel2.TabIndex = 3;
+            // 
+            // player3names
+            // 
+            this.player3names.AutoSize = true;
+            this.player3names.Location = new System.Drawing.Point(75, 136);
+            this.player3names.Name = "player3names";
+            this.player3names.Size = new System.Drawing.Size(0, 13);
+            this.player3names.TabIndex = 10;
+            this.player3names.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Player2
+            // 
+            this.Player2.AutoSize = true;
+            this.Player2.Location = new System.Drawing.Point(91, 418);
+            this.Player2.Name = "Player2";
+            this.Player2.Size = new System.Drawing.Size(0, 13);
+            this.Player2.TabIndex = 9;
+            this.Player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Player1
+            // 
+            this.Player1.AutoSize = true;
+            this.Player1.Location = new System.Drawing.Point(91, 391);
+            this.Player1.Name = "Player1";
+            this.Player1.Size = new System.Drawing.Size(0, 13);
+            this.Player1.TabIndex = 8;
+            this.Player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(45, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Current Tournament:";
             // 
             // panel3
             // 
@@ -216,7 +263,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(132, 332);
+            this.button2.Location = new System.Drawing.Point(132, 328);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -225,7 +272,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 331);
+            this.button1.Location = new System.Drawing.Point(14, 328);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -236,19 +283,19 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(103, 94);
+            this.pictureBox1.Size = new System.Drawing.Size(101, 93);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 379);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(61, 365);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 18);
+            this.label1.Size = new System.Drawing.Size(93, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Current Players:";
             // 
@@ -267,6 +314,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "SSB64 LIVE Tournament Bracket";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -307,6 +355,11 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Player2;
+        private System.Windows.Forms.Label Player1;
+        private System.Windows.Forms.Label player3names;
     }
 }
 

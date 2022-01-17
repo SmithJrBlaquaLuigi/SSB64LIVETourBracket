@@ -9,28 +9,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SSB64TournamentBracket;
 
 namespace ColorPickerTest
 {
     public partial class Form1 : Form
     {
+        public static Form1 Form1Instance;
+        public Label lbl2;
+        public Label lbl3;
+        public Label lbl4;
+        public ToolStripMenuItem savestrip;
+        public ToolStripMenuItem changestrip;
+        public MenuStrip menu;
+        public Button cancel;
+ 
+        static List<string> names = new List<string>();
+
         public Form1()
         {
+
             InitializeComponent();
+            Form1Instance = this;
 
+            lbl2 = player3names;
+            lbl3 = Player1;
+            lbl4 = Player2;
+
+            savestrip = saveBracketFileToolStripMenuItem1;
+            changestrip = changeBackgroundColorToolStripMenuItem;
             
-            panel1.BackColor = Color.Green;
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            saveBracketFileToolStripMenuItem1.Enabled = false;
+            
             changeIconToolStripMenuItem.Enabled = false;
             button1.Enabled = false;
             button2.Enabled = false;
+            panel1.BackColor = Color.Green;
+            this.MaximizeBox = false;   
+            saveBracketFileToolStripMenuItem1.Enabled = false;
         }
+        internal void recieveData(string playernames)
+        {
+            names.Add(playernames);
 
+        }   
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -41,11 +66,9 @@ namespace ColorPickerTest
 
             if (colorDlg.ShowDialog() == DialogResult.OK)
             {
-
                 panel1.BackColor = colorDlg.Color;
             }
         }
-
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var title = ("HotKeys Controls");
@@ -57,36 +80,61 @@ namespace ColorPickerTest
             System.Windows.Forms.MessageBox.Show(message, title,
                        System.Windows.Forms.MessageBoxButtons.OK,
                        System.Windows.Forms.MessageBoxIcon.Information);
-
-
         }
-
         private void saveBracketFileToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            saveBracketFileToolStripMenuItem1.Enabled = true;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Smash Bros Bracket Files|*.SBBRAK";
+            saveFileDialog1.FilterIndex = 0;
 
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                button2.Enabled = true;
+            }
         }
-
         private void openBracketFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "Smash Bros Bracket Files|*.SBBRAK|All File Formats (*.*)|*.*";
             {
-                saveBracketFileToolStripMenuItem1.Enabled = true;
-                if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK) return;
+                
+                if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    saveBracketFileToolStripMenuItem1.Enabled = true;
+                    string ext = Path.GetExtension(openFileDialog1.FileName);
 
-                else
+                    if (ext != ".SBBRAK")
+                    {
+                        throw new IndexOutOfRangeException();
+    
+                    //string required_Ext = ".SBBRAK";
+                    //string selected_Ext = Path.GetExtension(openFileDialog1.FileName);
+                    //int index = required_Ext.IndexOf(selected_Ext);
 
-                    return;
+                    //if (index < 0)
+                    //{
+                    //    MessageBox.Show("Unsupported file.");
+                    //    file.cancel = true;
+                    //
+                    }     
+                }
             }
-
         }
-
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Form2 form2 = new Form2();
+
+            if (form2.ShowDialog() == DialogResult.OK)
+            {
+                saveBracketFileToolStripMenuItem1.Enabled = true;
+            }
+
             bool isopen = false;
             foreach (Form f in Application.OpenForms)
             {
-                if (f.Text == "test")
+                if (f.Text == "form")
                 {
                     isopen = true;
                     f.BringToFront();
@@ -96,16 +144,25 @@ namespace ColorPickerTest
 
             if (isopen == false)
             {
-                Form form2 = new Form2();
-                form2.ShowDialog();
+                
             }
-        
-         }
-
+        }    
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-    }
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            
+        }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+    }
 }
