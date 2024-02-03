@@ -71,7 +71,7 @@ namespace ColorPickerTest
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var title = ("HotKeys Controls");
+            var title = ("HotKey Controls");
             var message = ("Player 1:" + " NUM 1" + "\r\n" +
 "Player 2:" + " NUM 2" + "\r\n" +
 "Player 3:" + " NUM 3" + "\r\n" +

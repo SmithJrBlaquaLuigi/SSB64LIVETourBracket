@@ -80,27 +80,29 @@ namespace ColorPickerTest
 
                 }
             }                
-        }   
+        }
 
             if (textBox1.TextLength < 3)
             {
                 //If not entered a name of a tournament set, you'll recieve a error message.
                 throw new ArgumentOutOfRangeException();
-            }           
+            }
             else if (textBox1.TextLength > 60)
 
-                throw new IndexOutOfRangeException();   
+                throw new IndexOutOfRangeException();
 
-            else if (numericUpDown1.Value < 4)
+            if (numericUpDown1.Value < 4)
             {
-            MessageBox.Show("Cannot be less than 4 players in the bracket. Please try again.");
+                MessageBox.Show("Cannot be less than 4 players in the bracket. Please try again.");
 
                  throw new NotFiniteNumberException();
              }
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
+
+            MessageBox.Show("The operation is cancelled.");
             return;
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -110,7 +112,7 @@ namespace ColorPickerTest
             {
                 button1.Enabled = false;
 
-                MessageBox.Show("Number of players cannot be exceeded more than 16 on this first release. Stay tuned for more information!", "Error");
+                MessageBox.Show("Number of players cannot exceeded more than 16 on this first release. Stay tuned for more information!", "Error");
                 numericUpDown1.Value = 16;
             }
             else
