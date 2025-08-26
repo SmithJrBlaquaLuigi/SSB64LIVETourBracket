@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SSB64TournamentBracket;
+using ColorPickerTest;
 
 namespace ColorPickerTest
 {
@@ -49,7 +50,7 @@ namespace ColorPickerTest
             button2.Enabled = false;
             panel1.BackColor = Color.Green;
             this.MaximizeBox = false;   
-            saveBracketFileToolStripMenuItem1.Enabled = false;
+            saveBracketFileToolStripMenuItem1.Enabled = true;
         }
         internal void recieveData(string playernames)
         {
@@ -88,11 +89,36 @@ namespace ColorPickerTest
             saveFileDialog1.Filter = "Smash Bros Bracket Files|*.SBBRAK";
             saveFileDialog1.FilterIndex = 0;
 
+
+            //const string path = @"c:\temp\r";
+            //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Textfile.txt");
+            //string filepath = Path.Combine(path, file);
+            
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                button2.Enabled = true;
+
+
+
+                //if (Path.GetExtension(saveFileDialog1.FileName) == ".txt")
+
+                try
+                {
+                    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tour.SBBRAK");
+                    File.WriteAllText(saveFileDialog1.FileName, lbl2.Text + lbl3.Text + lbl4.Text);
+                    lbl2.Visible = true;
+
+                    lbl2.Enabled = true;
+
+                    MessageBox.Show("File created.");
+                    button2.Enabled = true;
+                }
+                catch (Exception)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                //File.CreateText(file);
+   
             }
-        }
+ 
         private void openBracketFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
