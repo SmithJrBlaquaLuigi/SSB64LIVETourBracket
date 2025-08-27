@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SSB64TournamentBracket;
+using System.IO.Compression;
+using System.Net;
+using System.Net.Sockets;
 using ColorPickerTest;
 
 namespace ColorPickerTest
@@ -24,8 +27,9 @@ namespace ColorPickerTest
         public ToolStripMenuItem changestrip;
         public MenuStrip menu;
         public Button cancel;
+        public string testing;
  
-        static List<string> names = new List<string>();
+        static readonly List<string> names = new List<string>();
 
         public Form1()
         {
@@ -52,16 +56,16 @@ namespace ColorPickerTest
             this.MaximizeBox = false;   
             saveBracketFileToolStripMenuItem1.Enabled = true;
         }
-        internal void recieveData(string playernames)
+        internal void RecieveData(string playernames)
         {
             names.Add(playernames);
 
         }   
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        private void changeBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ChangeBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDlg = new ColorDialog();
 
@@ -70,7 +74,7 @@ namespace ColorPickerTest
                 panel1.BackColor = colorDlg.Color;
             }
         }
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var title = ("HotKey Controls");
             var message = ("Player 1:" + " NUM 1" + "\r\n" +
@@ -82,30 +86,29 @@ namespace ColorPickerTest
                        System.Windows.Forms.MessageBoxButtons.OK,
                        System.Windows.Forms.MessageBoxIcon.Information);
         }
-        private void saveBracketFileToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void SaveBracketFileToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             saveBracketFileToolStripMenuItem1.Enabled = true;
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "Smash Bros Bracket Files|*.SBBRAK";
-            saveFileDialog1.FilterIndex = 0;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            {
+                Filter = "Smash Bros Bracket Files|*.SBBRAK",
+                FilterIndex = 0
+            };
 
 
             //const string path = @"c:\temp\r";
             //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Textfile.txt");
             //string filepath = Path.Combine(path, file);
-            
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-
-
-
                 //if (Path.GetExtension(saveFileDialog1.FileName) == ".txt")
-
                 try
                 {
-                    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tour.SBBRAK");
+
+                    string testing = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".SBBRAK");
                     File.WriteAllText(saveFileDialog1.FileName, lbl2.Text + lbl3.Text + lbl4.Text);
                     lbl2.Visible = true;
-
+                    
                     lbl2.Enabled = true;
 
                     MessageBox.Show("File created.");
@@ -119,15 +122,33 @@ namespace ColorPickerTest
    
             }
  
-        private void openBracketFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenBracketFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Smash Bros Bracket Files|*.SBBRAK|All File Formats (*.*)|*.*";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                
+                Filter = "Smash Bros Bracket Files|*.SBBRAK|All File Formats (*.*)|*.*",
+                FilterIndex = 0
+            };
+
+            {
+
                 if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+
+                    try
+                    {
+                        string testing = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".SBBRAK");
+                        // string path = Path.GetExtension(openFileDialog1.FileName);
+                        File.ReadAllText(openFileDialog1.FileName);
+
+                    }
+                    catch (Exception)
+                    {
+                        //throw new IndexOutOfRangeException();
+                    }
+
+                    
                     saveBracketFileToolStripMenuItem1.Enabled = true;
                     string ext = Path.GetExtension(openFileDialog1.FileName);
 
@@ -148,7 +169,7 @@ namespace ColorPickerTest
                 }
             }
         }
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
 
@@ -173,7 +194,7 @@ namespace ColorPickerTest
                 
             }
         }    
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -181,12 +202,12 @@ namespace ColorPickerTest
         {
             
         }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             
         }

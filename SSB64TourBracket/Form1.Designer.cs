@@ -74,7 +74,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(589, 437);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // pictureBox2
             // 
@@ -109,21 +109,21 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.FileToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
             this.toolStripMenuItem1.Text = "Create Bracket File..";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
             // openBracketFileToolStripMenuItem
             // 
             this.openBracketFileToolStripMenuItem.Name = "openBracketFileToolStripMenuItem";
             this.openBracketFileToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.openBracketFileToolStripMenuItem.Text = "Open Bracket File Data..";
-            this.openBracketFileToolStripMenuItem.Click += new System.EventHandler(this.openBracketFileToolStripMenuItem_Click);
+            this.openBracketFileToolStripMenuItem.Click += new System.EventHandler(this.OpenBracketFileToolStripMenuItem_Click);
             // 
             // saveBracketFileToolStripMenuItem1
             // 
@@ -131,7 +131,7 @@
             this.saveBracketFileToolStripMenuItem1.Name = "saveBracketFileToolStripMenuItem1";
             this.saveBracketFileToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
             this.saveBracketFileToolStripMenuItem1.Text = "Save Bracket File Data..";
-            this.saveBracketFileToolStripMenuItem1.Click += new System.EventHandler(this.saveBracketFileToolStripMenuItem1_Click);
+            this.saveBracketFileToolStripMenuItem1.Click += new System.EventHandler(this.SaveBracketFileToolStripMenuItem1_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -147,7 +147,7 @@
             this.changeBackgroundColorToolStripMenuItem.Name = "changeBackgroundColorToolStripMenuItem";
             this.changeBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.changeBackgroundColorToolStripMenuItem.Text = "Change Background Color";
-            this.changeBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.changeBackgroundColorToolStripMenuItem_Click);
+            this.changeBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.ChangeBackgroundColorToolStripMenuItem_Click);
             // 
             // changeIconToolStripMenuItem
             // 
@@ -160,7 +160,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
             // 

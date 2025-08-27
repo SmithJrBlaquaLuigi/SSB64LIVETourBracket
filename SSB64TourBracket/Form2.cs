@@ -30,7 +30,7 @@ namespace ColorPickerTest
             numericUpDown1.Value = 4;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (numericUpDown1.Value < 4)
             {
@@ -98,14 +98,14 @@ namespace ColorPickerTest
                  throw new NotFiniteNumberException();
              }
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
 
             MessageBox.Show("The operation is cancelled.");
             return;
         }
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             
             if (numericUpDown1.Value > 16)
@@ -119,7 +119,7 @@ namespace ColorPickerTest
 
                 button1.Enabled=true;
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             
             //Form1.Form1Instance.label.Text = textBox1.Text;

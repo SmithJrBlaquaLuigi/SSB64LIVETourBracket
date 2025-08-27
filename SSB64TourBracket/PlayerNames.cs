@@ -55,7 +55,7 @@ namespace SSB64TournamentBracket
             }
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
             Form1.Form1Instance.savestrip.Enabled = false;
