@@ -23,7 +23,7 @@ namespace SSB64TournamentBracket
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             
             if (Player1Name.Text.Trim() == string.Empty)
