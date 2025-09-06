@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SSB64TournamentBracket;
 using System.IO;
+using DiscordRPC.Exceptions;
 
 namespace SSB64TournamentBracket
 {
@@ -40,7 +41,7 @@ namespace SSB64TournamentBracket
 
             if (textBox1.Text.Trim() == string.Empty)
             {
-                throw new IndexOutOfRangeException();
+                throw new ArgumentOutOfRangeException("Empty");
             }
             else if (textBox1.TextLength > 2)
             {
