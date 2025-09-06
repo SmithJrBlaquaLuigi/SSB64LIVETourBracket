@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SSB64TournamentBracket;
 using System.IO;
-using ColorPickerTest;
 
-namespace ColorPickerTest
+namespace SSB64TournamentBracket
 {
     public partial class Form2 : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace ColorPickerTest
+﻿namespace SSB64TournamentBracket
 {
     partial class Form2
     {

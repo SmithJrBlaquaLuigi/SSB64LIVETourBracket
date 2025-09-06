@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SSB64TournamentBracket;
+using System.IO;
 using System.Windows.Forms;
 
-namespace ColorPickerTest
+namespace SSB64TournamentBracket
 {
     internal static class Program
     {
