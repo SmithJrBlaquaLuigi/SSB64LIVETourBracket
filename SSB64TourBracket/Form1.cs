@@ -54,10 +54,9 @@ namespace SSB64TournamentBracket
             this.MaximizeBox = false;   
             saveBracketFileToolStripMenuItem1.Enabled = true;
         }
-        internal void RecieveData(string playernames)
+        public void RecieveData(string playernames)
         {
             names.Add(playernames);
-
         }
         private void Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -138,36 +137,39 @@ namespace SSB64TournamentBracket
                     {
                         string testing = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".SBBRAK");
                         string path = Path.GetExtension(openFileDialog1.FileName);
-                        player3names.Text = File.ReadAllText(openFileDialog1.FileName + lbl2.Text + lbl3.Text + lbl4.Text);
-                        
+                        lbl3.Text = File.ReadAllText(openFileDialog1.FileName + lbl3.Text);
+                        lbl2.Text = File.ReadAllText(openFileDialog1.FileName + lbl2.Text);
+                        lbl4.Text = File.ReadAllText(openFileDialog1.FileName + lbl4.Text);
+
                         MessageBox.Show("File Loaded.", "Success");
+                        
                     }
                     catch (Exception)
                     {
-                        //throw new IndexOutOfRangeException();
-                    }
+                        throw new IndexOutOfRangeException();
 
+                    }
                     
                     saveBracketFileToolStripMenuItem1.Enabled = true;
-                    string ext = Path.GetExtension(openFileDialog1.FileName);
+                    /* string ext = Path.GetExtension(openFileDialog1.FileName);
 
-                    if (ext != ".SBBRAK")
+                     if (ext != ".SBBRAK")
                     {
                         throw new IndexOutOfRangeException();
     
-                    //string required_Ext = ".SBBRAK";
-                    //string selected_Ext = Path.GetExtension(openFileDialog1.FileName);
-                    //int index = required_Ext.IndexOf(selected_Ext);
+                    string required_Ext = ".SBBRAK";
+                    string selected_Ext = Path.GetExtension(openFileDialog1.FileName);
+                    int index = required_Ext.IndexOf(selected_Ext);
 
-                    //if (index < 0)
-                    //{
-                    //    MessageBox.Show("Unsupported file.");
-                    //    file.cancel = true;
-                    //
+                    if (index < 0)
+                    {
+                        MessageBox.Show("Unsupported file.");
+                        file.cancel = true;
+                    */
                     }     
                 }
             }
-        }
+        
         private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
