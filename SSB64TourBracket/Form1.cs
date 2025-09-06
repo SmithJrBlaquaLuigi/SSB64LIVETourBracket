@@ -13,9 +13,8 @@ using SSB64TournamentBracket;
 using System.IO.Compression;
 using System.Net;
 using System.Net.Sockets;
-using ColorPickerTest;
 
-namespace ColorPickerTest
+namespace SSB64TournamentBracket
 {
     public partial class Form1 : Form
     {
@@ -27,8 +26,7 @@ namespace ColorPickerTest
         public ToolStripMenuItem changestrip;
         public MenuStrip menu;
         public Button cancel;
-        public string testing;
- 
+
         static readonly List<string> names = new List<string>();
 
         public Form1()
@@ -60,7 +58,7 @@ namespace ColorPickerTest
         {
             names.Add(playernames);
 
-        }   
+        }
         private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -139,9 +137,10 @@ namespace ColorPickerTest
                     try
                     {
                         string testing = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".SBBRAK");
-                        // string path = Path.GetExtension(openFileDialog1.FileName);
-                        File.ReadAllText(openFileDialog1.FileName);
-
+                        string path = Path.GetExtension(openFileDialog1.FileName);
+                        player3names.Text = File.ReadAllText(openFileDialog1.FileName + lbl2.Text + lbl3.Text + lbl4.Text);
+                        
+                        MessageBox.Show("File Loaded.", "Success");
                     }
                     catch (Exception)
                     {
